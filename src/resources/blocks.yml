@@ -1,0 +1,10 @@
+EXAMPLE:
+  update: 1d
+  before: 'STONE:0'
+  after: 'AIR:0'
+  allowitems:
+  - '工具'
+  durability: 10
+  position: Block
+  drops:
+  - '0.3|石头|1'

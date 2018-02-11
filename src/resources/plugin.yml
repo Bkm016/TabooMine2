@@ -1,0 +1,8 @@
+name: TabooMines2
+main: me.skymc.taboomine2.TabooMine
+version: {$VERSION}
+
+commands:
+  taboomine2:
+    aliases: [mine2]
+    permission: taboomine.admin

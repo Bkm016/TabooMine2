@@ -1,0 +1,11 @@
+Settings:
+  source: 'TabooCode'
+  result:
+    deny: 
+      title: '&4错误'
+      subtitle: '&4你不能使用这个工具来采集改材料'
+      sound: 'ENTITY_VILLAGER_NO-1-1'
+    durability:
+      title: '&4错误'
+      subtitle: '&4工具耐久不足'
+      sound: 'ENTITY_VILLAGER_NO-1-1'
