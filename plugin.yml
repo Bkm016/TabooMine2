@@ -1,6 +1,6 @@
 name: TabooMines2
 main: me.skymc.taboomine2.TabooMine
-version: {$VERSION}
+version: 1.0-SNAPSHOT
 
 commands:
   taboomine2:

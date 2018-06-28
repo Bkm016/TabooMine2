@@ -1,5 +1,7 @@
+# 插件设置
 Settings:
-  source: 'TabooCode'
+  # 物品库来源（可选：TabooCode/TabooLib）
+  source: 'TabooLib'
   result:
     deny: 
       title: '&4错误'
