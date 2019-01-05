@@ -1,7 +1,7 @@
 package me.skymc.taboomine2.api;
 
-import me.skymc.advanced.item.durability.Durability;
-import me.skymc.advanced.item.durability.api.DurabilityAPI;
+import me.skymc.purtmars.module.api.DurabilityAPI;
+import me.skymc.purtmars.module.api.SkriptAPI;
 import me.skymc.taboocode.TabooCodeItem;
 import me.skymc.taboolib.fileutils.ConfigUtils;
 import me.skymc.taboolib.inventory.ItemUtils;
@@ -57,7 +57,7 @@ public class MineAPI {
         for (String key : section.getStringList("allowitems")) {
             if (lore.contains(key)) {
                 // ÄÍ¾Ã²»×ã
-                return DurabilityAPI.getDurability(item) < section.getInt("durability") ? BreakResult.DURABILITY : BreakResult.ALLOW;
+                return DurabilityAPI.getDurability(item).getDurability() <= section.getInt("durability") ? BreakResult.DURABILITY : BreakResult.ALLOW;
             }
         }
         return BreakResult.DENY;
@@ -88,6 +88,10 @@ public class MineAPI {
     }
 
     public ItemStack getItemStack(String name) {
+        // ½Å±¾
+        if (TabooMine.getInst().getConfig().getString("Settings.source").equalsIgnoreCase("Skript")) {
+            return SkriptAPI.getItem(name);
+        }
         // ½û¼É·¨µä
         if (TabooMine.getInst().getConfig().getString("Settings.source").equalsIgnoreCase("taboocode")) {
             return TabooCodeItem.getItem(name, false);

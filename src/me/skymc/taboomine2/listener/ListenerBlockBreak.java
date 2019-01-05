@@ -1,6 +1,6 @@
 package me.skymc.taboomine2.listener;
 
-import me.skymc.advanced.item.durability.api.DurabilityAPI;
+import me.skymc.purtmars.module.api.DurabilityAPI;
 import me.skymc.taboolib.display.TitleUtils;
 import me.skymc.taboolib.inventory.ItemUtils;
 import me.skymc.taboolib.message.MsgUtils;
@@ -78,7 +78,10 @@ public class ListenerBlockBreak implements Listener {
 
         // ¿Û³ıÄÍ¾Ã
         if (section.contains("allowitems") || section.getStringList("allowitems").size() > 0) {
-            DurabilityAPI.addDurability(e.getPlayer(), e.getPlayer().getItemInHand(), -section.getInt("durability"));
+            DurabilityAPI.DurabilityResult durabilityResult = DurabilityAPI.setDurability(e.getPlayer().getItemInHand(), new DurabilityAPI.DurabilityData(-section.getInt("durability"), 0), true);
+            if (durabilityResult.isItemBreak()) {
+                DurabilityAPI.callBreakEvent(e.getPlayer(), e.getPlayer().getItemInHand(), () -> e.getPlayer().setItemInHand(null));
+            }
         }
 
         // µôÂäÎïÆ·
